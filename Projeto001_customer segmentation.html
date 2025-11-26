@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://allendowney.github.io/PoliticalAlignmentCaseStudy/ -->
+<html lang="pt" data-mode="light" data-theme="light" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/">
+
+    <title>Clusterização de dados: segmentação de clientes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="./Projeto001_customer segmentation/theme.css" rel="stylesheet">
+<link href="./Projeto001_customer segmentation/bootstrap.css" rel="stylesheet">
+<link href="./Projeto001_customer segmentation/pydata-sphinx-theme.css" rel="stylesheet">
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+
+    <p class="title logo__title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clusterização de dados: segmentação de clientes</font></font></p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navegação do site"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+     
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="" aria-label="claro/escuro" data-toggle="tooltip" data-original-title="light/dark">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Links de ícones">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+      
+      <div class="bd-sidebar-primary bd-sidebar noprint">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navegação do site"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="" aria-label="claro/escuro" data-toggle="tooltip" data-original-title="light/dark">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Links de ícones">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+    <p class="title logo__title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clusterização de dados: segmentação de clientes</font></font></p>
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <!-- <div class="bd-header-article noprint"> -->
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="" data-original-title="Toggle primary sidebar">
+            <!-- <span class="fa-solid fa-bars"></span> -->
+        </label>
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()" class="btn btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Fullscreen mode">
+  
+</button>
+<a href="https://github.com/AllenDowney/PoliticalAlignmentCaseStudy" target="_blank" class="btn btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Source repository"></a>
+
+      
+  </li></ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="" data-original-title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+
+            <article class="bd-article" role="main">
+              
+  <section class="tex2jax_ignore mathjax_ignore" id="political-alignment-case-study">
+<h1><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clusterização de dados: segmentação de clientes </font></font><political-alignment-case-study" title="Link permanente para este título"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></h1>
+<p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Este estudo de caso de ciência de dados explora uma experiência comum de marketing digital em análises para e-commerce. O objetivo deste projeto é criar clusters para segmentar os clientes da base, buscando uma maior objetividade nas ofertas e, por consequência, uma maior taxa de conversão.</font></font></p>
+<p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Este material é um trabalho em andamento, então seu feedback é bem-vindo. A melhor maneira de fornecer esse feedback é </font></font><a class="reference external" href="https://github.com/ennergarcia/customer_segmentation/issues"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">clicar aqui e criar uma issue neste repositório do GitHub</font></font></a><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> .</font></font></p>
+</section>
+<section id="the-notebooks">
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Notebooks Colab </font></font><the-notebooks" title="Link permanente para este título"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></h2>
+<p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">No notebook Colab será possível executar o código, fazer os exercícios e salvar sua versão modificada do caderno no Google Drive (se tiver um).</font></font></p>
+<section id="notebook-1">
+<h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Notebook 1 </font></font><notebook-1" title="Link permanente para este título"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></h3>
+<p><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Limpeza e validação</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> : O primeiro notebook carrega dados e realiza o processo de limpeza e validação dos dados.</font></font></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ennergarcia/customer_segmentation/blob/main/Segmentacao_clientes.ipynb"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clique aqui para executar o Notebook 1 no Colab</font></font></a></p></li>
+</ul>
+</section>
+<section id="notebook-2">
+<h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Notebook 2 </font></font><notebook-2" title="Link permanente para este título"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"></font></font></a></h3>
+<p><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Pré-processamento e padronização dos dados</font></font></strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> : Este notebook utiliza ferramentas para processar e padronizar os dados para que enfim seja possível a segmentação destes dados em clusters.</font></font></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ennergarcia/customer_segmentation/blob/main/Segmentacao_clientes2.ipynb"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clique aqui para executar o Notebook 2 no Colab</font></font></a></p></li>
+</ul>
+<p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Licença: </font></font><a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional (CC BY-NC-SA 4.0)</font></font></a></p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+  
+  <div class="footer-item">
+    
+<p class="component-author"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+Por Enner Sebastião Garcia
+</font></font></p>
+
+  </div>
+  
+  <div class="footer-item">
+
+  </div>
+
+  <div class="footer-item">
+    <p class="last-updated"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+Todas as imagens foram produzidas por IA.</font></font><br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+  
+</body></html>
