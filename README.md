@@ -34,7 +34,3 @@ O projeto está licenciado sob a: [Atribuição-NãoComercial-CompartilhaIgual 4
 
 * **Por:** Enner Sebastião Garcia
 * **Nota:** Todas as imagens foram produzidas por IA.
-
----
-
-Gostaria de saber mais detalhes sobre a metodologia de clusterização de clientes, como o algoritmo **K-Means**, que é frequentemente utilizado neste tipo de análise?
